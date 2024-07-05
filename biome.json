@@ -13,7 +13,7 @@
             },
             "style": {
                 "noShoutyConstants": "warn",
-                "useNamingConvention": "warn"
+                "useNamingConvention": "off"
             }
         }
     },

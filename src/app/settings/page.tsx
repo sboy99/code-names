@@ -1,9 +1,9 @@
 import { BaseLayout } from "@/components/layouts/base";
 
-export default function Home() {
+export default function Settings() {
 	return (
 		<BaseLayout>
-			<main>Hello</main>
+			<main>Settings</main>
 		</BaseLayout>
 	);
 }
