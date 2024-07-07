@@ -1,5 +1,4 @@
-import { BaseLayout } from "@/components/layouts/base";
-
+export const revalidate = 1;
 export default function Home() {
 	return <main>Hello</main>;
 }

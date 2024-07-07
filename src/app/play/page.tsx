@@ -1,5 +1,9 @@
-import { BaseLayout } from "@/components/layouts/base";
+import { ListGameRooms } from "@/components/game/list-rooms";
 
 export default function Play() {
-	return <main>Play</main>;
+	return (
+		<main>
+			<ListGameRooms />
+		</main>
+	);
 }
