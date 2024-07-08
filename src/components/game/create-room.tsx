@@ -1,3 +1,5 @@
+import { Button } from "../ui/button";
+
 export async function CreateGameRoom() {
-	return <div className="">c</div>;
+	return <Button className="w-full max-w-80">Create Room</Button>;
 }

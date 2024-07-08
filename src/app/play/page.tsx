@@ -1,9 +1,14 @@
+import { CreateGameRoom } from "@/components/game/create-room";
+import { JoinGameRoom } from "@/components/game/join-room";
 import { ListGameRooms } from "@/components/game/list-rooms";
 
 export default function Play() {
 	return (
-		<main>
-			<ListGameRooms />
+		<main className="grid place-items-center h-full">
+			<div className="w-full grid place-items-center gap-2">
+				<CreateGameRoom />
+				<JoinGameRoom />
+			</div>
 		</main>
 	);
 }
