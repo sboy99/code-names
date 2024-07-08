@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import type { ComponentProps, PropsWithChildren } from "react";
+import type { ComponentProps } from "react";
 import { Navbar } from "../navbar";
 
 type BaseLayoutProps = ComponentProps<"div">;

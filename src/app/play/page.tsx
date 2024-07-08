@@ -1,6 +1,5 @@
 import { CreateGameRoom } from "@/components/game/create-room";
 import { JoinGameRoom } from "@/components/game/join-room";
-import { ListGameRooms } from "@/components/game/list-rooms";
 
 export default function Play() {
 	return (

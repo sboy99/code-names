@@ -14,7 +14,12 @@
             "style": {
                 "noShoutyConstants": "warn",
                 "useNamingConvention": "off"
-            }
+            },
+            "correctness": {
+				"useExhaustiveDependencies": "off",
+				"noUnusedImports": "warn",
+				"noUnusedVariables": "warn"
+			}
         }
     },
     "formatter": {
