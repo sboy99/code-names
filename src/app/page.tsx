@@ -1,4 +1,4 @@
 export const revalidate = 1;
-export default function Home() {
+export default function HomePage() {
 	return <main>Hello</main>;
 }

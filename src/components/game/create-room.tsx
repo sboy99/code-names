@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { CreateRoomForm } from "../forms/create-room";
 import { Button } from "../ui/button";
 import {
@@ -9,9 +12,15 @@ import {
 	DialogTrigger,
 } from "../ui/dialog";
 
-export async function CreateGameRoom() {
+export function CreateGameRoom() {
+	const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+
+	function closeDialog() {
+		setIsDialogOpen(false);
+	}
+
 	return (
-		<Dialog>
+		<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 			{/* Trigger Button */}
 			<DialogTrigger asChild>
 				<Button className="w-full max-w-80">Create Room</Button>
@@ -24,7 +33,7 @@ export async function CreateGameRoom() {
 						Create a room, that your friends can join.
 					</DialogDescription>
 				</DialogHeader>
-				<CreateRoomForm />
+				<CreateRoomForm doOnSubmit={closeDialog} />
 			</DialogContent>
 		</Dialog>
 	);

@@ -1,4 +1,5 @@
 "use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -14,43 +15,42 @@ import {
 	FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-import { useToast } from "../ui/use-toast";
 
 const FormSchema = z.object({
-	roomName: z
-		.string({ required_error: "Room name is required" })
-		.min(3, "Room name must be at least 3 characters"),
+	roomId: z
+		.string({ required_error: "Room id is required" })
+		.min(1, "Room id must be at least 1 character"),
 });
 
 type TFormValues = z.infer<typeof FormSchema>;
 
-type CreateRoomFormProps = {
-	doOnSubmit: () => void;
+type JoinRoomFormProps = {
+	doOnSubmit: (roomId: string) => void;
 };
 
-export function CreateRoomForm(props: CreateRoomFormProps) {
+export function JoinRoomForm(props: JoinRoomFormProps) {
 	const supabase = useSupabase();
-	const { toast } = useToast();
 	const form = useForm<TFormValues>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
-			roomName: "sagar's room",
+			roomId: "",
 		},
 	});
 
-	async function createRoom(name: string) {
-		const res = await supabase.tables.rooms.createRoom(name);
-		return res.status === 201
-			? "Room created successfully"
-			: "Failed to create room";
+	async function isRoomExist(roomId: string): Promise<boolean> {
+		return await supabase.tables.rooms.isRoomExist(roomId);
 	}
 
 	async function onSubmit(values: TFormValues) {
-		const message = await createRoom(values.roomName);
-		toast({
-			description: message,
+		const isExist = await isRoomExist(values.roomId);
+		if (isExist) {
+			props.doOnSubmit(values.roomId);
+			return;
+		}
+		form.setError("roomId", {
+			type: "manual",
+			message: "Room does not exist",
 		});
-		props.doOnSubmit();
 	}
 
 	return (
@@ -58,20 +58,20 @@ export function CreateRoomForm(props: CreateRoomFormProps) {
 			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 				<FormField
 					control={form.control}
-					name="roomName"
+					name="roomId"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Room Name</FormLabel>
+							<FormLabel>Room ID</FormLabel>
 							<FormControl>
-								<Input defaultValue={field.value} {...field} />
+								<Input placeholder="Enter room id" {...field} />
 							</FormControl>
-							<FormDescription>This is your public room name.</FormDescription>
+							<FormDescription>Ask your friend for room id</FormDescription>
 							<FormMessage />
 						</FormItem>
 					)}
 				/>
 				<Button type="submit" className="w-full">
-					Create
+					Join
 				</Button>
 			</form>
 		</Form>

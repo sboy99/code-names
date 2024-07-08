@@ -1,7 +1,7 @@
 import { CreateGameRoom } from "@/components/game/create-room";
 import { JoinGameRoom } from "@/components/game/join-room";
 
-export default function Play() {
+export default function PlayPage() {
 	return (
 		<main className="grid place-items-center h-full">
 			<div className="w-full grid place-items-center gap-2">

@@ -1,10 +1,10 @@
-export interface IRoom {
-	id: number;
+import type { IBase } from "./base";
+
+export interface IRoom extends IBase {
 	name: string;
 	words: string[];
-	red_indexes: number[];
-	blue_indexes: number[];
-	gray_indexes: number[];
-	dead_index: number;
-	created_at: string;
+	red_indices: number[];
+	blue_indices: number[];
+	gray_indices: number[];
+	black_indices: number[];
 }
