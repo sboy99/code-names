@@ -6,15 +6,20 @@
     "linter": {
         "enabled": true,
         "rules": {
-            "recommended": true,
             "suspicious": {
                 "noDebugger": "off",
-                "noConsoleLog": "info"
+                "noConsoleLog": "info",
+                "noExplicitAny": "off"
             },
             "style": {
                 "noShoutyConstants": "warn",
                 "useNamingConvention": "off"
-            }
+            },
+            "correctness": {
+				"useExhaustiveDependencies": "off",
+				"noUnusedImports": "warn",
+				"noUnusedVariables": "warn"
+			}
         }
     },
     "formatter": {
