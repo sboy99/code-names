@@ -23,6 +23,9 @@ dependencies:
   '@supabase/supabase-js':
     specifier: ^2.44.2
     version: 2.44.2
+  '@tma.js/sdk-react':
+    specifier: ^2.2.8
+    version: 2.2.8(@types/react@18.3.3)(react@18.3.1)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -893,6 +896,24 @@ packages:
     dependencies:
       '@swc/counter': 0.1.3
       tslib: 2.6.3
+    dev: false
+
+  /@tma.js/sdk-react@2.2.8(@types/react@18.3.3)(react@18.3.1):
+    resolution: {integrity: sha512-awbMqWMrACJOY/eQcgy5qhENYd6WOuoP11vO+3g6hIGuK4McidXmj2FHEaBRaJ/JxPZ+TY0qKpReExHH9XYjQA==}
+    peerDependencies:
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@tma.js/sdk': 2.7.0
+      '@types/react': 18.3.3
+      react: 18.3.1
+    dev: false
+
+  /@tma.js/sdk@2.7.0:
+    resolution: {integrity: sha512-LRuJdoEbAqKmSYccvXx5emSnye2je8oIbBVPtV+BmcNoa/dCZ0gFVkaeuyBqzroGtfGDyGO/WebU54ie5MKmCQ==}
     dev: false
 
   /@types/conventional-commits-parser@5.0.0:
