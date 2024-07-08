@@ -2,7 +2,7 @@ import { type SupabaseClient, createClient } from "@supabase/supabase-js";
 import { Channels } from "./channels";
 import { Tables } from "./tables";
 
-class Supabase {
+export class Supabase {
 	private static _instance: Supabase;
 
 	public tables: Tables;
