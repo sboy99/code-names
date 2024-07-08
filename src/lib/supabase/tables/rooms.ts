@@ -1,12 +1,12 @@
-import { CodeName } from "@/lib/code-name";
+import { type CodeName, codeName } from "@/lib/code-name";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { IRoom } from "../entities/room";
+import type { IRoom } from "../../../domain/entities/room";
 import type { Database } from "../schema";
 
 export class RoomsTable {
 	private readonly _codeName: CodeName;
 	constructor(private readonly _supabaseClient: SupabaseClient<Database>) {
-		this._codeName = CodeName.getInstance();
+		this._codeName = codeName;
 	}
 
 	public async createRoom(name: string) {
@@ -14,11 +14,7 @@ export class RoomsTable {
 		return await this._supabaseClient.from("rooms").insert([
 			{
 				name,
-				words: codeName.words,
-				red_indices: codeName.redIndices,
-				blue_indices: codeName.blueIndices,
-				gray_indices: codeName.grayIndices,
-				black_indices: codeName.blackIndices,
+				...codeName,
 			},
 		]);
 	}

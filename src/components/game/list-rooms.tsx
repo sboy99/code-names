@@ -1,5 +1,5 @@
+import type { IRoom } from "@/domain/entities/room";
 import { supabase } from "@/lib/supabase";
-import type { IRoom } from "@/lib/supabase/entities/room";
 
 async function getGameRooms() {
 	const rooms = await supabase.tables.rooms.listRooms();

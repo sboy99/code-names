@@ -3,7 +3,7 @@ import type {
 	RealtimePostgresInsertPayload,
 	SupabaseClient,
 } from "@supabase/supabase-js";
-import type { IRoom } from "../entities/room";
+import type { IRoom } from "../../../domain/entities/room";
 
 export class RoomsChannel {
 	constructor(private readonly _supabaseClient: SupabaseClient) {}
