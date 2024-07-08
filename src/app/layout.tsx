@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { BaseLayout } from "@/components/layouts/base";
+import { SupabaseProvider } from "@/components/supabase/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${inter.className} dark`}>
-				<BaseLayout>{children}</BaseLayout>
+				<SupabaseProvider>
+					<BaseLayout>{children}</BaseLayout>
+				</SupabaseProvider>
 			</body>
 		</html>
 	);
