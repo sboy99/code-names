@@ -1,7 +1,7 @@
 import { type CodeName, codeName } from "@/lib/code-name";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { IRoom } from "../../../domain/entities/room";
-import type { Database } from "../schema";
+import type { IRoom } from "@/domain/entities/room";
+import type { Database, Json } from "../schema";
 
 export class RoomsTable {
 	private readonly _codeName: CodeName;
@@ -10,11 +10,11 @@ export class RoomsTable {
 	}
 
 	public async createRoom(name: string) {
-		const codeName = this._codeName.create();
+		const cards = this._codeName.createCards() as unknown as Json[];
 		return await this._supabaseClient.from("rooms").insert([
 			{
 				name,
-				...codeName,
+				cards,
 			},
 		]);
 	}

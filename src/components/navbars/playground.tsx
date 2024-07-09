@@ -1,5 +1,5 @@
-import { BackButton } from "./back-button";
-import { RoomName } from "./room-name";
+import { BackButton } from "../buttons/back-button";
+import { RoomName } from "../room-name";
 
 type PlaygroundNavbarProps = {
 	roomName: string;

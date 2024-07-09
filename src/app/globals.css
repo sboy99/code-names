@@ -1,6 +1,6 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
   @layer base {
     :root {
@@ -73,4 +73,35 @@
     body {
       @apply bg-background text-foreground;
     }
+  }
+
+  @layer components {
+    .playground {
+    @apply grid gap-2;
+    grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+    grid-auto-rows: 128px;
+  }
+
+  .playground > * {
+    @apply flex items-center justify-center rounded-lg;
+  }
+
+  .red-card {
+    @apply bg-red-500 text-red-50;
+  }
+
+  .blue-card {
+    @apply bg-blue-500 text-blue-50;
+
+  }
+
+  .gray-card {
+    @apply bg-gray-500 text-gray-50;
+
+  }
+
+  .black-card {
+    @apply bg-black text-white dark:bg-white dark:text-black; 
+  }
+
   }
