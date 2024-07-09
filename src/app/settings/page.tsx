@@ -1,3 +1,9 @@
+import { BasicLayout } from "@/components/layouts/basic";
+
 export default function Settings() {
-	return <main>Settings</main>;
+	return (
+		<BasicLayout>
+			<main>Settings</main>
+		</BasicLayout>
+	);
 }

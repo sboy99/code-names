@@ -1,11 +1,11 @@
 import { NavItems } from "@/data";
 import type { TIconName } from "@/domain/types";
 import Link from "next/link";
-import { Icon } from "./icon";
+import { Icon } from "../icon";
 
-export function Navbar() {
+export function BasicNavbar() {
 	return (
-		<nav className="h-12 border-t p-2 grid place-items-center">
+		<nav className="h-16 border-t p-2 grid place-items-center">
 			<div className="w-full max-w-80 mx-auto flex items-center justify-evenly">
 				{NavItems.map((navItem) => (
 					<NavItem
@@ -29,7 +29,7 @@ type NavItemProps = {
 function NavItem(props: NavItemProps) {
 	return (
 		<Link href={props.href}>
-			<Icon name={props.iconName} className="w-5 h-5" />
+			<Icon name={props.iconName} className="w-6 h-6" />
 		</Link>
 	);
 }

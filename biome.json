@@ -19,7 +19,10 @@
 				"useExhaustiveDependencies": "off",
 				"noUnusedImports": "warn",
 				"noUnusedVariables": "warn"
-			}
+			},
+            "complexity":{
+                "noForEach": "off"
+            }
         }
     },
     "formatter": {

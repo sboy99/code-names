@@ -1,5 +1,6 @@
 import { type SupabaseClient, createClient } from "@supabase/supabase-js";
 import { Channels } from "./channels";
+import type { Database } from "./schema";
 import { Tables } from "./tables";
 
 export class Supabase {
@@ -24,8 +25,8 @@ export class Supabase {
 
 	// -------------------------------PRIVATE--------------------------------- //
 
-	private getSupabaseClient(): SupabaseClient {
-		return createClient(
+	private getSupabaseClient(): SupabaseClient<Database> {
+		return createClient<Database>(
 			process.env.NEXT_PUBLIC_SUPABASE_URL as string,
 			process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string,
 		);
